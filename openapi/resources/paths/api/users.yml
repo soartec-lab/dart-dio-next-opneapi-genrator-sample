@@ -1,0 +1,44 @@
+get:
+  tags:
+    - Users
+  summary: Get user
+  operationId: getUser
+  responses:
+    '200':
+      description: "OK"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/user'
+post:
+  tags:
+    - Users
+  summary: Create user
+  operationId: postUser
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/user'
+  responses:
+    '200':
+      description: "OK"
+
+components:
+  schemas:
+    user:
+      type: object
+      required:
+        - name
+        - email
+      properties:
+        name:
+          type: string
+          example: mike
+          description: user name
+        email:
+          type: string
+          format: email
+          example: hoge@huga.com
+          description: mail addrress

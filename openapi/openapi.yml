@@ -1,0 +1,12 @@
+openapi: 3.0.0
+info:
+  title: API
+  description: mcloud Api definitions
+  version: v1
+
+servers:
+  - url: 'http://localhost:8082/'
+
+paths:
+  /api/users:
+    $ref: ./resources/paths/api/users.yml

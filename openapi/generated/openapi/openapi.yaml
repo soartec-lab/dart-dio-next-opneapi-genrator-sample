@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  description: mcloud Api definitions
+  title: API
+  version: v1
+servers:
+- url: http://localhost:8082/
+paths:
+  /api/users:
+    get:
+      operationId: getUser
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+          description: OK
+      summary: Get user
+      tags:
+      - Users
+    post:
+      operationId: postUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+        required: true
+      responses:
+        "200":
+          description: OK
+      summary: Create user
+      tags:
+      - Users
+components:
+  schemas:
+    user:
+      example:
+        name: mike
+        email: hoge@huga.com
+      properties:
+        name:
+          description: user name
+          example: mike
+          type: string
+        email:
+          description: mail addrress
+          example: hoge@huga.com
+          format: email
+          type: string
+      required:
+      - email
+      - name
+      type: object
